@@ -1,0 +1,103 @@
+@startuml
+set namespaceSeparator ::
+
+class "medzoom::account_screen.dart::AccountScreen" {
+  +State<AccountScreen> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "medzoom::account_screen.dart::AccountScreen"
+
+class "medzoom::account_screen.dart::_AccountScreenState" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "medzoom::account_screen.dart::_AccountScreenState"
+
+class "medzoom::colors.dart::ColorsSelect" {
+  {static} +Color appbarTitle
+  {static} +Color background
+  {static} +Color boxBorder
+  {static} +Color buttonABorder
+  {static} +Color buttonAFill
+  {static} +Color buttonAText
+  {static} +Color buttonBBorder
+  {static} +Color buttonBFill
+  {static} +Color buttonBText
+  {static} +Color iconBlack
+  {static} +Color iconDisabled
+  {static} +Color iconFavorite
+  {static} +Color invisible
+  {static} +Color sliderThumbActive
+  {static} +Color sliderThumbInactive
+  {static} +Color sliderTrackActive
+  {static} +Color sliderTrackInactive
+  {static} +Color medZoomA
+  {static} +Color medZoomB
+  {static} +Color switchActive
+  {static} +Color switchActiveTrack
+  {static} +Color switchInactive
+  {static} +Color switchInactiveTrack
+  {static} +Color switchTileBorder
+  {static} +Color switchTileFill
+  {static} +Color textBlack
+  {static} +Color textFieldEdgeWhite
+  {static} +Color textFieldEdgeGray
+  {static} +Color textFieldFillTransparent
+  {static} +Color textFieldLabel
+  {static} +Color textGray
+  {static} +Color textTileTitle
+  {static} +Color textTitle
+  {static} +Color textWhite
+  {static} +Color tileColor
+  {static} +Color tileDivider
+  {static} +Color tileOverlay
+}
+
+"medzoom::colors.dart::ColorsSelect" o-- "dart::ui::Color"
+
+class "medzoom::hildegard_screen.dart::HildegardScreen" {
+  +State<HildegardScreen> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "medzoom::hildegard_screen.dart::HildegardScreen"
+
+class "medzoom::hildegard_screen.dart::_HildegardScreenState" {        
+  -String _ip
+  -String _name
+  -String _vorname
+  -int _mobility
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "medzoom::hildegard_screen.dart::_HildegardScreenState"
+
+class "medzoom::main.dart::LoginScreen" {
+  +LoginScreenState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "medzoom::main.dart::LoginScreen"
+
+class "medzoom::main.dart::LoginScreenState" {
+  +TextEditingController emailTextField
+  +TextEditingController passwordTextField
+  -String _ip
+  -Future<bool> _login()
+  +Widget build()
+}
+
+"medzoom::main.dart::LoginScreenState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "medzoom::main.dart::LoginScreenState"
+
+class "medzoom::patients_screen.dart::PatientsScreen" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "medzoom::patients_screen.dart::PatientsScreen"
+
+class "medzoom::temp_data.dart::TempData" {
+  {static} -int _mobility
+  {static} -String _ip
+  {static} +int getMobility()
+  {static} +dynamic setMobility()
+  {static} +String getIP()
+}

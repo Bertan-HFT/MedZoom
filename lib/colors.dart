@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+class ColorsSelect {
+  static const appbarTitle = Color (0xFFFFFFFF);
+  static const background = Color(0xFFFFFFFF);
+  static const boxBorder = Color (0x4D9E9E9E);
+  static const buttonABorder = Color (0xFF808080);
+  static const buttonAFill = Color.fromARGB(255, 76, 141, 238);
+  static const buttonAText = Color (0xFFFFFFFF);
+  static const buttonBBorder = Color (0xFF808080);
+  static const buttonBFill = Color (0xFFFFFFFF);
+  static const buttonBText = Color (0xFF000000);
+  static const iconBlack = Color (0xFF000000);
+  static const iconDisabled = Color (0xFF000000);
+  static const iconFavorite = Color (0xFFFFC000);
+  static const invisible = Color (0x00000000);
+  static const sliderThumbActive = Color (0xFF3A57E8);
+  static const sliderThumbInactive = Color (0xFF9E9E9E);
+  static const sliderTrackActive = Color (0x00000000);
+  static const sliderTrackInactive = Color (0xFF3A57E8);
+  static const medZoomA = Color (0xFF28f0ff);
+  static const medZoomB = Color(0xFF2a4bbf);
+  static const switchActive = Color (0xFF248307);
+  static const switchActiveTrack = Color (0x50175006);
+  static const switchInactive = Color (0xFF9E9E9E);
+  static const switchInactiveTrack = Color (0xFFE0E0E0);
+  static const switchTileBorder = Color (0x00000000);
+  static const switchTileFill = Color (0x00000000);
+  static const textBlack = Color(0xFF000000);
+  static const textFieldEdgeWhite = Color (0xFFFFFFFF);
+  static const textFieldEdgeGray = Color (0xFF9E9E9E);
+  static const textFieldFillTransparent = Color (0x00000000);
+  static const textFieldLabel = Color (0xFF9E9E9E);
+  static const textGray = Color(0xFF9E9E9E);
+  static const textTileTitle = Color (0xFF000000);
+  static const textTitle = Color (0xFF000000);
+  static const textWhite = Color(0xFFFFFFFF);
+  static const tileColor = Color(0xFFFFFFFF);
+  static const tileDivider = Color (0x4D9E9E9E);
+  static const tileOverlay = Color(0x42000000);
+}
