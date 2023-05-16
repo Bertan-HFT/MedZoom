@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:medzoom/colors.dart';
@@ -7,6 +10,8 @@ import 'package:medzoom/patients_screen.dart';
 import 'package:medzoom/temp_data.dart';
 import 'account_screen.dart';
 import 'package:medzoom/patients_overview_screen.dart';
+
+import 'neu.dart';
 
 void main() {
   FlutterError.onError = (details) {
@@ -22,6 +27,7 @@ void main() {
         '/patients': (context) => const PatientsScreen(),
         '/account': (context) => const AccountScreen(),
         '/overview': (context) => const PatientsOverviewScreen(),
+        '/neu': (context) => const HomeScreen(),
       },
     ),
   );
@@ -39,25 +45,43 @@ class LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordTextField = TextEditingController();
   final String _ip = TempData.getIP();
 
-  //Login Zeugs
-  Future<bool> _login(String email, String password) async {
+    //Login Zeugs
+  Future<bool> _loginSecure(String email, String password) async {
     try {
-      final loginResponse = await http.post(
-        Uri.parse('$_ip/login.php'),
-        body: {'email': email, 'password': password},
+      final response = await http.post(
+        Uri.parse('$_ip/salt.php'),
+        body: {'email': email},
       );
 
-      if (loginResponse.body == 'Login successful') {
+      if (response.body == 'Login failed when retrieving salt') {
         if (kDebugMode) {
-          print('Login successful!');
-        }
-        return true;
-      } else {
-        if (kDebugMode) {
-          print(loginResponse.body);
+          print(response.body);
           print('Login failed!');
         }
         return false;
+      } else {
+        // Salt von Response lesen
+        final salt = response.body;
+        // Password mit dem Salt hashen
+        final hashedPassword =
+            sha256.convert(utf8.encode('$salt$password')).toString();
+        final loginResponse = await http.post(
+          Uri.parse('$_ip/login_secure.php'),
+          body: {'email': email, 'password': hashedPassword},
+        );
+
+        if (loginResponse.body == 'Login successful') {
+          if (kDebugMode) {
+            print('Login successful!');
+          }
+          return true;
+        } else {
+          if (kDebugMode) {
+            print(loginResponse.body);
+            print('Login failed!');
+          }
+          return false;
+        }
       }
     } catch (e) {
       return false;
@@ -254,7 +278,7 @@ class LoginScreenState extends State<LoginScreen> {
                                   Navigator.pushReplacementNamed(
                                       context, '/patients');
                                 } else {
-                                  final isLoggedIn = await _login(
+                                  final isLoggedIn = await _loginSecure(
                                       emailTextField.text,
                                       passwordTextField.text);
 
