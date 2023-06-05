@@ -349,7 +349,6 @@ class _LoginWidgetState extends State<LoginWidget> {
           );
         }
         if (kDebugMode) {
-          print(response.body);
           print('Login failed!');
         }
         return false;
@@ -361,8 +360,10 @@ class _LoginWidgetState extends State<LoginWidget> {
             sha256.convert(utf8.encode('$salt$password')).toString();
         final loginResponse = await http.post(
           Uri.parse('$_ip/login_secure.php'),
-          body: {'email': email, 'password': hashedPassword},
+          body: {'email': email, 'passwort': hashedPassword},
         );
+
+        print(hashedPassword);
 
         if (loginResponse.body == 'Login successful') {
           if (kDebugMode) {
@@ -390,7 +391,6 @@ class _LoginWidgetState extends State<LoginWidget> {
             );
           }
           if (kDebugMode) {
-            print(loginResponse.body);
             print('Login failed!');
           }
           return false;
