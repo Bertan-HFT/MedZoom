@@ -239,10 +239,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   if (emailTextField.text == '' &&
                                       passwordTextField.text == '') {
                                     context.goNamed('Dashboard');
+                                    await TempData.fetchPatients();
+                                    TempData.getPatients();
                                   } else {
                                     final isLoggedIn = await _loginSecure(
                                         emailTextField.text,
                                         passwordTextField.text);
+                                    await TempData.fetchPatients();
+                                    TempData.getPatients();
 
                                     //Wenn successful, dann gehe zum nächsten Screen
                                     if (isLoggedIn && context.mounted) {
@@ -362,8 +366,6 @@ class _LoginWidgetState extends State<LoginWidget> {
           Uri.parse('$_ip/login_secure.php'),
           body: {'email': email, 'passwort': hashedPassword},
         );
-
-        print(hashedPassword);
 
         if (loginResponse.body == 'Login successful') {
           if (kDebugMode) {

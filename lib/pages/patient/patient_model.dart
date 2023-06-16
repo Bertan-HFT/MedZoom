@@ -48,6 +48,12 @@ class PatientModel extends FlutterFlowModel {
   // State field(s) for Eingabefeld widget.
   TextEditingController? eingabefeldController9;
   String? Function(BuildContext, String?)? eingabefeldController9Validator;
+  // State field(s) for Eingabefeld widget.
+  TextEditingController? eingabefeldController10;
+  String? Function(BuildContext, String?)? eingabefeldController10Validator;
+  // State field(s) for Eingabefeld widget.
+  TextEditingController? eingabefeldController11;
+  String? Function(BuildContext, String?)? eingabefeldController11Validator;
 
   /// Initialization and disposal methods.
 
@@ -63,6 +69,8 @@ class PatientModel extends FlutterFlowModel {
     eingabefeldController7?.dispose();
     eingabefeldController8?.dispose();
     eingabefeldController9?.dispose();
+    eingabefeldController10?.dispose();
+    eingabefeldController11?.dispose();
   }
 
   /// Additional helper methods are added here.

@@ -1,3 +1,6 @@
+import 'dart:ffi';
+
+import '../../utils/temp_data.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -20,23 +23,58 @@ class PatientWidget extends StatefulWidget {
 
 class _PatientWidgetState extends State<PatientWidget> {
   late PatientModel _model;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  List<String> _currentData = ["-1"];
 
+  List<String> output = TempData.getData();
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => PatientModel());
 
+    //Versicherungsnummer
     _model.eingabefeldController1 ??= TextEditingController();
+    //Vorname
     _model.eingabefeldController2 ??= TextEditingController();
+    //Nachname
     _model.eingabefeldController3 ??= TextEditingController();
+    //Anschrift
     _model.eingabefeldController4 ??= TextEditingController();
+    //PLZ
     _model.eingabefeldController5 ??= TextEditingController();
+    //Wohnort
     _model.eingabefeldController6 ??= TextEditingController();
+    //Mail 1
     _model.eingabefeldController7 ??= TextEditingController();
+    //Mail 2
     _model.eingabefeldController8 ??= TextEditingController();
+    //Telefonnummer
     _model.eingabefeldController9 ??= TextEditingController();
+    //Mobilitätsstufe
+    _model.eingabefeldController10 ??= TextEditingController();
+    //Abholort
+    _model.eingabefeldController11 ??= TextEditingController();
+    List<String> output = TempData.getData();
+    _currentData = output;
+    _model.eingabefeldController1.text = output[10];
+    _model.eingabefeldController2.text = output[3];
+    _model.eingabefeldController3.text = output[2];
+    _model.eingabefeldController4.text = output[5];
+    _model.eingabefeldController5.text = output[6];
+    _model.eingabefeldController6.text = output[7];
+    _model.eingabefeldController7.text = output[9];
+    _model.eingabefeldController8.text = output[12];
+    _model.eingabefeldController9.text = output[8];
+    _model.eingabefeldController10.text = output[11];
+    if (output[1] == "1") {
+      _model.eingabefeldController11.text = "Supermarkt";
+    } else if (output[1] == "2") {
+      _model.eingabefeldController11.text = "Kirche";
+    } else if (output[1] == "3") {
+      _model.eingabefeldController11.text = "Schule";
+    } else {
+      _model.eingabefeldController11.text = "n. Angegeben";
+    }
   }
 
   @override
@@ -568,6 +606,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                           textCapitalization:
                                               TextCapitalization.words,
                                           obscureText: false,
+                                          readOnly: true,
                                           decoration: InputDecoration(
                                             labelText: 'Vorname',
                                             labelStyle:
@@ -655,6 +694,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                           textCapitalization:
                                               TextCapitalization.words,
                                           obscureText: false,
+                                          readOnly: true,
                                           decoration: InputDecoration(
                                             labelText: 'Nachname',
                                             labelStyle:
@@ -774,7 +814,43 @@ class _PatientWidgetState extends State<PatientWidget> {
                                           child: PUPatientSuchenWidget(),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => setState(() {
+                                          List<String> output =
+                                              TempData.getData();
+                                          _model.eingabefeldController1.text =
+                                              output[10];
+                                          _model.eingabefeldController2.text =
+                                              output[3];
+                                          _model.eingabefeldController3.text =
+                                              output[2];
+                                          _model.eingabefeldController4.text =
+                                              output[5];
+                                          _model.eingabefeldController5.text =
+                                              output[6];
+                                          _model.eingabefeldController6.text =
+                                              output[7];
+                                          _model.eingabefeldController7.text =
+                                              output[9];
+                                          _model.eingabefeldController8.text =
+                                              output[12];
+                                          _model.eingabefeldController9.text =
+                                              output[8];
+                                          _model.eingabefeldController10.text =
+                                              output[11];
+                                          if (output[1] == "1") {
+                                            _model.eingabefeldController11
+                                                .text = "Supermarkt";
+                                          } else if (output[1] == "2") {
+                                            _model.eingabefeldController11
+                                                .text = "Kirche";
+                                          } else if (output[1] == "3") {
+                                            _model.eingabefeldController11
+                                                .text = "Schule";
+                                          } else {
+                                            _model.eingabefeldController11
+                                                .text = "n. Angegeben";
+                                          }
+                                        }));
                                   },
                                 ),
                                 Text(
@@ -1098,23 +1174,68 @@ class _PatientWidgetState extends State<PatientWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 12.0),
-                                  child: FlutterFlowDropDown<String>(
-                                    controller:
-                                        _model.auswahlfeldValueController1 ??=
-                                            FormFieldController<String>(null),
-                                    options: [
-                                      '1',
-                                      '2',
-                                      '3',
-                                      '4',
-                                      '5',
-                                      'n. Angegeben'
-                                    ],
-                                    onChanged: (val) => setState(
-                                        () => _model.auswahlfeldValue1 = val),
-                                    width: double.infinity,
-                                    height: 56.0,
-                                    textStyle: FlutterFlowTheme.of(context)
+                                  child: TextFormField(
+                                    controller: _model.eingabefeldController10,
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText: 'Mobilitätsstufe',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF57636C),
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF57636C),
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFE0E3E7),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFF4B39EF),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF5963),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF5963),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      contentPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              20.0, 24.0, 0.0, 24.0),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
@@ -1122,41 +1243,76 @@ class _PatientWidgetState extends State<PatientWidget> {
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                         ),
-                                    hintText: 'Mobilitätsstufe',
-                                    icon: Icon(
-                                      Icons.keyboard_arrow_down_rounded,
-                                      color: Color(0xFF57636C),
-                                      size: 15.0,
-                                    ),
-                                    fillColor: Colors.white,
-                                    elevation: 2.0,
-                                    borderColor: Color(0xFFE0E3E7),
-                                    borderWidth: 2.0,
-                                    borderRadius: 8.0,
-                                    margin: EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 4.0, 12.0, 4.0),
-                                    hidesUnderline: true,
-                                    isSearchable: false,
+                                    validator: _model
+                                        .eingabefeldController6Validator
+                                        .asValidator(context),
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 12.0),
-                                  child: FlutterFlowDropDown<String>(
-                                    controller:
-                                        _model.auswahlfeldValueController2 ??=
-                                            FormFieldController<String>(null),
-                                    options: [
-                                      'n. Angegeben',
-                                      'Kirche',
-                                      'Supermarkt',
-                                      'Schule'
-                                    ],
-                                    onChanged: (val) => setState(
-                                        () => _model.auswahlfeldValue2 = val),
-                                    width: double.infinity,
-                                    height: 56.0,
-                                    textStyle: FlutterFlowTheme.of(context)
+                                  child: TextFormField(
+                                    controller: _model.eingabefeldController11,
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText: 'Abholort',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF57636C),
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF57636C),
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFE0E3E7),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFF4B39EF),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF5963),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF5963),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      contentPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              20.0, 24.0, 0.0, 24.0),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
@@ -1164,21 +1320,9 @@ class _PatientWidgetState extends State<PatientWidget> {
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                         ),
-                                    hintText: 'Abholort wählen',
-                                    icon: Icon(
-                                      Icons.keyboard_arrow_down_rounded,
-                                      color: Color(0xFF57636C),
-                                      size: 15.0,
-                                    ),
-                                    fillColor: Colors.white,
-                                    elevation: 2.0,
-                                    borderColor: Color(0xFFE0E3E7),
-                                    borderWidth: 2.0,
-                                    borderRadius: 8.0,
-                                    margin: EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 4.0, 12.0, 4.0),
-                                    hidesUnderline: true,
-                                    isSearchable: false,
+                                    validator: _model
+                                        .eingabefeldController6Validator
+                                        .asValidator(context),
                                   ),
                                 ),
                               ],
@@ -1323,7 +1467,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                               TextCapitalization.words,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelText: 'Mail',
+                                            labelText: 'Mobil',
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -1424,7 +1568,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                               TextCapitalization.words,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelText: 'Mobil',
+                                            labelText: 'Festnetz',
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -1541,8 +1685,53 @@ class _PatientWidgetState extends State<PatientWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      await TempData.setData(
+                                          _model.eingabefeldController3.text,
+                                          _model.eingabefeldController2.text,
+                                          _model.eingabefeldController4.text,
+                                          int.parse(_model
+                                              .eingabefeldController5.text),
+                                          _model.eingabefeldController6.text,
+                                          _model.eingabefeldController9.text,
+                                          _model.eingabefeldController7.text,
+                                          _model.eingabefeldController1.text,
+                                          int.parse(_model
+                                              .auswahlfeldValueController1!
+                                              .value
+                                              .toString()),
+                                          _model.eingabefeldController8.text,
+                                          TempData.sammelstelleToID(_model
+                                              .auswahlfeldValueController1!
+                                              .value
+                                              .toString()));
+                                      if (TempData.getResponseStatus() == 200 &&
+                                          context.mounted) {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text(
+                                                  TempData.getResponseBody()),
+                                              content: Text("Daten von " +
+                                                  _model.eingabefeldController2
+                                                      .text +
+                                                  " " +
+                                                  _model.eingabefeldController3
+                                                      .text +
+                                                  " wurden aktualisiert."),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: const Text("OK"),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      }
                                     },
                                     text: 'Änderung speichern',
                                     options: FFButtonOptions(
@@ -1572,7 +1761,17 @@ class _PatientWidgetState extends State<PatientWidget> {
                                   Spacer(),
                                   FFButtonWidget(
                                     onPressed: () {
-                                      print('Button pressed ...');
+                                      _model.eingabefeldController1.text = "";
+                                      _model.eingabefeldController2.text = "";
+                                      _model.eingabefeldController3.text = "";
+                                      _model.eingabefeldController4.text = "";
+                                      _model.eingabefeldController5.text = "";
+                                      _model.eingabefeldController6.text = "";
+                                      _model.eingabefeldController7.text = "";
+                                      _model.eingabefeldController8.text = "";
+                                      _model.eingabefeldController9.text = "";
+                                      _model.eingabefeldController10.text = "";
+                                      _model.eingabefeldController11.text = "";
                                     },
                                     text: 'Änderung verwerfen',
                                     options: FFButtonOptions(
@@ -1638,8 +1837,49 @@ class _PatientWidgetState extends State<PatientWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    await TempData.setData(
+                                        _model.eingabefeldController3.text,
+                                        _model.eingabefeldController2.text,
+                                        _model.eingabefeldController4.text,
+                                        int.parse(
+                                            _model.eingabefeldController5.text),
+                                        _model.eingabefeldController6.text,
+                                        _model.eingabefeldController9.text,
+                                        _model.eingabefeldController7.text,
+                                        _model.eingabefeldController1.text,
+                                        int.parse(_model
+                                            .eingabefeldController10.text),
+                                        _model.eingabefeldController8.text,
+                                        TempData.sammelstelleToID(_model
+                                            .eingabefeldController11.text));
+                                    if (TempData.getResponseStatus() == 200 &&
+                                        context.mounted) {
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text(
+                                                TempData.getResponseBody()),
+                                            content: Text("Daten von " +
+                                                _model.eingabefeldController2
+                                                    .text +
+                                                " " +
+                                                _model.eingabefeldController3
+                                                    .text +
+                                                " wurden aktualisiert."),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: const Text("OK"),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
                                   },
                                   text: 'Änderung speichern',
                                   options: FFButtonOptions(
@@ -1667,7 +1907,17 @@ class _PatientWidgetState extends State<PatientWidget> {
                                 Spacer(),
                                 FFButtonWidget(
                                   onPressed: () {
-                                    print('Button pressed ...');
+                                    _model.eingabefeldController1.text = "";
+                                    _model.eingabefeldController2.text = "";
+                                    _model.eingabefeldController3.text = "";
+                                    _model.eingabefeldController4.text = "";
+                                    _model.eingabefeldController5.text = "";
+                                    _model.eingabefeldController6.text = "";
+                                    _model.eingabefeldController7.text = "";
+                                    _model.eingabefeldController8.text = "";
+                                    _model.eingabefeldController9.text = "";
+                                    _model.eingabefeldController10.text = "";
+                                    _model.eingabefeldController11.text = "";
                                   },
                                   text: 'Änderung verwerfen',
                                   options: FFButtonOptions(

@@ -1,3 +1,4 @@
+import '../../utils/temp_data.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -211,7 +212,7 @@ class _PUFahrdienstSuchenWidgetState extends State<PUFahrdienstSuchenWidget> {
                     size: 24.0,
                   ),
                   onPressed: () {
-                    print('IconButton pressed ...');
+                    print('Yay pressed ...');
                   },
                 ),
               ],
@@ -243,25 +244,37 @@ class _PUFahrdienstSuchenWidgetState extends State<PUFahrdienstSuchenWidget> {
                       label: DefaultTextStyle.merge(
                         softWrap: true,
                         child: Text(
-                          'Vorname',
+                          'Stadt',
                           style: FlutterFlowTheme.of(context).labelLarge,
                         ),
                       ),
                     ),
                   ],
-                  rows: fahrdienste
-                      .mapIndexed((fahrdiensteIndex, fahrdiensteItem) => [
-                            Text(
-                              'Edit Column 1',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Text(
-                              'Edit Column 2',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ].map((c) => DataCell(c)).toList())
-                      .map((e) => DataRow(cells: e))
-                      .toList(),
+                  rows: List.generate(
+                    TempData.getDrivingServices().length ~/ 2,
+                    (index) => [
+                      Text(
+                        TempData.getDrivingServices()[index * 2],
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                      Text(
+                        TempData.getDrivingServices()[index * 2 + 1],
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                    ]
+                        .map((c) => DataCell(
+                              GestureDetector(
+                                onTap: () async {
+                                  await TempData.fetchDrivingServiceData(
+                                      TempData.getDrivingServices()[index * 2],
+                                      TempData.getDrivingServices()[index * 2 + 1]);
+                                  context.pop();
+                                },
+                                child: c,
+                              ),
+                            ))
+                        .toList(),
+                  ).map((e) => DataRow(cells: e)).toList(),
                   headingRowColor: MaterialStateProperty.all(
                     FlutterFlowTheme.of(context).primaryBackground,
                   ),

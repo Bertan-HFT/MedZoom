@@ -1,3 +1,5 @@
+import 'package:med_zoom/utils/temp_data.dart';
+
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -462,7 +464,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4.0, 12.0, 16.0, 0.0),
                                   child: Text(
-                                    '6',
+                                    '5',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -551,7 +553,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '+ 49 190 000000',
+                                                            '01234 56789 / +49 170 92737481',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .labelMedium
@@ -577,7 +579,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'name@domain.com',
+                                                            'bertan@hft.de',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -658,6 +660,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    await TempData.fetchData("Bertan", "Dincer");
                                                     context
                                                         .pushNamed('Patient');
                                                   },
@@ -742,7 +745,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '+ 49 190 000000',
+                                                            '98765 43210 / +49 160 987654321',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .labelMedium
@@ -768,7 +771,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'name@domain.com',
+                                                            '',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -849,6 +852,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    await TempData.fetchData("Matthias", "Flad");
                                                     context
                                                         .pushNamed('Patient');
                                                   },
@@ -933,7 +937,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '+ 49 190 000000',
+                                                            '10101 01010',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .labelMedium
@@ -959,7 +963,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'name@domain.com',
+                                                            'min@hft.de',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1040,6 +1044,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    await TempData.fetchData("Min", "Gerlach");
                                                     context
                                                         .pushNamed('Patient');
                                                   },
@@ -1124,7 +1129,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '+ 49 190 000000',
+                                                            '84732 12843 / +49 161 192837465',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .labelMedium
@@ -1150,7 +1155,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'name@domain.com',
+                                                            'kay@hft.de',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1231,197 +1236,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context
-                                                        .pushNamed('Patient');
-                                                  },
-                                                  child: Icon(
-                                                    Icons.info_outlined,
-                                                    color: Color(0xFF57636C),
-                                                    size: 24.0,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 1.0),
-                                    child: Container(
-                                      width: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 0.0,
-                                            color: Color(0xFFE0E3E7),
-                                            offset: Offset(0.0, 1.0),
-                                          )
-                                        ],
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      'Mamaras Nicolas',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLarge
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Plus Jakarta Sans',
-                                                                color: Color(
-                                                                    0xFF14181B),
-                                                                fontSize: 16.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 4.0,
-                                                                0.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            '+ 49 190 000000',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: Color(
-                                                                      0xFF57636C),
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      4.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'name@domain.com',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: Color(
-                                                                      0xFF4B39EF),
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Card(
-                                              clipBehavior:
-                                                  Clip.antiAliasWithSaveLayer,
-                                              color: Color(0xFFF1F4F8),
-                                              elevation: 1.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(40.0),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        4.0, 4.0, 4.0, 4.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                        'Disponieren');
-                                                  },
-                                                  child: Icon(
-                                                    Icons
-                                                        .keyboard_arrow_right_rounded,
-                                                    color: Color(0xFF57636C),
-                                                    size: 24.0,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Card(
-                                              clipBehavior:
-                                                  Clip.antiAliasWithSaveLayer,
-                                              color: Color(0xFFF1F4F8),
-                                              elevation: 1.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(40.0),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        4.0, 4.0, 4.0, 4.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
+                                                    await TempData.fetchData("Kay", "Kröhner");
                                                     context
                                                         .pushNamed('Patient');
                                                   },
@@ -1506,7 +1321,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '+ 49 190 000000',
+                                                            '73923 12974',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .labelMedium
@@ -1532,7 +1347,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'name@domain.com',
+                                                            '',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1613,6 +1428,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    await TempData.fetchData("Giuliano", "Weeh");
                                                     context
                                                         .pushNamed('Patient');
                                                   },

@@ -1,3 +1,5 @@
+import 'package:med_zoom/utils/temp_data.dart';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -28,14 +30,31 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
     super.initState();
     _model = createModel(context, () => FahrdienstModel());
 
+    //Fahrdienstname
     _model.eingabefeldController1 ??= TextEditingController();
+    //Stadt
     _model.eingabefeldController2 ??= TextEditingController();
+    //Anschrift
     _model.eingabefeldController3 ??= TextEditingController();
+    //Plz
     _model.eingabefeldController4 ??= TextEditingController();
+    //Ort
     _model.eingabefeldController5 ??= TextEditingController();
+    //Mail 1
     _model.eingabefeldController6 ??= TextEditingController();
+    //Mail 2
     _model.eingabefeldController7 ??= TextEditingController();
+    //Mobil
     _model.eingabefeldController8 ??= TextEditingController();
+    List<String> output = TempData.getDrivingServiceData();
+    _model.eingabefeldController1.text = output[2];
+    _model.eingabefeldController2.text = output[3];
+    _model.eingabefeldController3.text = output[4];
+    _model.eingabefeldController4.text = output[5];
+    _model.eingabefeldController5.text = output[6];
+    _model.eingabefeldController6.text = output[9];
+    _model.eingabefeldController7.text = output[7];
+    _model.eingabefeldController8.text = output[8];
   }
 
   @override
@@ -611,6 +630,7 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                                     size: 30.0,
                                   ),
                                   onPressed: () async {
+                                    await TempData.fetchDrivingServices();
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,
@@ -623,7 +643,26 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                                           child: PUFahrdienstSuchenWidget(),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => setState(() {
+                                          List<String> output =
+                                              TempData.getDrivingServiceData();
+                                          _model.eingabefeldController1.text =
+                                              output[2];
+                                          _model.eingabefeldController2.text =
+                                              output[3];
+                                          _model.eingabefeldController3.text =
+                                              output[4];
+                                          _model.eingabefeldController4.text =
+                                              output[5];
+                                          _model.eingabefeldController5.text =
+                                              output[6];
+                                          _model.eingabefeldController6.text =
+                                              output[9];
+                                          _model.eingabefeldController7.text =
+                                              output[7];
+                                          _model.eingabefeldController8.text =
+                                              output[8];
+                                        }));
                                   },
                                 ),
                                 Text(
@@ -934,7 +973,7 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                             ),
                           ),
                           Container(
-                            width: 650.0,
+                            width: 600.0,
                             height: 248.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
@@ -942,11 +981,6 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                             ),
                             child: Builder(
                               builder: (context) {
-                                final fahrdienstTable = List.generate(
-                                        random_data.randomInteger(1, 100),
-                                        (index) =>
-                                            random_data.randomName(true, false))
-                                    .toList();
                                 return Container(
                                   width: 40.0,
                                   height: 40.0,
@@ -956,7 +990,7 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                                         label: DefaultTextStyle.merge(
                                           softWrap: true,
                                           child: Text(
-                                            'Auto',
+                                            'Fahrername',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge,
                                           ),
@@ -966,48 +1000,28 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                                         label: DefaultTextStyle.merge(
                                           softWrap: true,
                                           child: Text(
-                                            'Größe',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelLarge,
-                                          ),
-                                        ),
-                                      ),
-                                      DataColumn2(
-                                        label: DefaultTextStyle.merge(
-                                          softWrap: true,
-                                          child: Text(
-                                            'Spezial',
+                                            'Sitzplätze',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge,
                                           ),
                                         ),
                                       ),
                                     ],
-                                    rows: fahrdienstTable
-                                        .mapIndexed((fahrdienstTableIndex,
-                                                fahrdienstTableItem) =>
-                                            [
-                                              Text(
-                                                'Edit Column 1',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                'Edit Column 2',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                'Edit Column 3',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ].map((c) => DataCell(c)).toList())
-                                        .map((e) => DataRow(cells: e))
-                                        .toList(),
+                                    rows: List.generate(
+                                      1,
+                                      (index) => [
+                                        Text(
+                                          TempData.getDrivingServiceData()[1],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                        Text(
+                                          TempData.getDrivingServiceData()[10],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ].map((c) => DataCell(c)).toList(),
+                                    ).map((e) => DataRow(cells: e)).toList(),
                                     headingRowColor: MaterialStateProperty.all(
                                       FlutterFlowTheme.of(context)
                                           .primaryBackground,
@@ -1161,7 +1175,7 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                                               TextCapitalization.words,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelText: 'Mail',
+                                            labelText: 'Festnetz',
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -1380,37 +1394,14 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                                 children: [
                                   FFButtonWidget(
                                     onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: 'Änderung speichern',
-                                    options: FFButtonOptions(
-                                      width: 200.0,
-                                      height: 60.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.white,
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                      _model.eingabefeldController1.text = "";
+                                      _model.eingabefeldController2.text = "";
+                                      _model.eingabefeldController3.text = "";
+                                      _model.eingabefeldController4.text = "";
+                                      _model.eingabefeldController5.text = "";
+                                      _model.eingabefeldController6.text = "";
+                                      _model.eingabefeldController7.text = "";
+                                      _model.eingabefeldController8.text = "";
                                     },
                                     text: 'Änderung verwerfen',
                                     options: FFButtonOptions(
@@ -1477,35 +1468,14 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                               children: [
                                 FFButtonWidget(
                                   onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: 'Änderung speichern',
-                                  options: FFButtonOptions(
-                                    width: 200.0,
-                                    height: 60.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.white,
-                                        ),
-                                    elevation: 3.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                                Spacer(),
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                    _model.eingabefeldController1.text = "";
+                                    _model.eingabefeldController2.text = "";
+                                    _model.eingabefeldController3.text = "";
+                                    _model.eingabefeldController4.text = "";
+                                    _model.eingabefeldController5.text = "";
+                                    _model.eingabefeldController6.text = "";
+                                    _model.eingabefeldController7.text = "";
+                                    _model.eingabefeldController8.text = "";
                                   },
                                   text: 'Änderung verwerfen',
                                   options: FFButtonOptions(

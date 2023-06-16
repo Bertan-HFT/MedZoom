@@ -70,10 +70,22 @@ dev_dependencies:
 
 
 flutter_icons:
-  android: true
+  android: "launcher_icon"
   ios: true
-  remove_alpha_ios: true
-  image_path: 'assets/images/app_launcher_icon.png'
+  image_path: "assets/images/Medzoom_Icon_00.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/images/Medzoom_Icon_00.png"
+    background_color: "#2791dc"
+    theme_color: "#2791dc"
+  windows:
+    generate: true
+    image_path: "assets/images/Medzoom_Icon_00.png"
+    icon_size: 256 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/images/Medzoom_Icon_00.png"
 
 
 # For information on the generic Dart part of this file, see the

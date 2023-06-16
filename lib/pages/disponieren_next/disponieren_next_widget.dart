@@ -11,25 +11,25 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'disponieren_model.dart';
-export 'disponieren_model.dart';
+import 'disponieren_next_model.dart';
+export 'disponieren_next_model.dart';
 
-class DisponierenWidget extends StatefulWidget {
-  const DisponierenWidget({Key? key}) : super(key: key);
+class DisponierenNextWidget extends StatefulWidget {
+  const DisponierenNextWidget({Key? key}) : super(key: key);
 
   @override
   _DisponierenWidgetState createState() => _DisponierenWidgetState();
 }
 
-class _DisponierenWidgetState extends State<DisponierenWidget> {
-  late DisponierenModel _model;
+class _DisponierenWidgetState extends State<DisponierenNextWidget> {
+  late DisponierenNextModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DisponierenModel());
+    _model = createModel(context, () => DisponierenNextModel());
 
     _model.eingabefeldController1 ??= TextEditingController();
     _model.eingabefeldController2 ??= TextEditingController();
@@ -364,7 +364,7 @@ class _DisponierenWidgetState extends State<DisponierenWidget> {
                         child: Builder(
                           builder: (context) {
                             final tabellefrdispo = List.generate(
-                                random_data.randomInteger(0, 0),
+                                1,
                                 (index) => random_data.randomString(
                                       0,
                                       0,
@@ -420,21 +420,25 @@ class _DisponierenWidgetState extends State<DisponierenWidget> {
                                           tabellefrdispoItem) =>
                                       [
                                         Text(
-                                          'Edit Column 1',
+                                          'Patient A',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium,
                                         ),
                                         Text(
-                                          'Edit Column 2',
+                                          'Arzt A',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium,
                                         ),
                                         Text(
-                                          'Edit Column 3',
+                                          'Fahrdienst A',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium,
                                         ),
-                                        Container(),
+                                        Text(
+                                          'Termin A',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
                                       ].map((c) => DataCell(c)).toList())
                                   .map((e) => DataRow(cells: e))
                                   .toList(),
@@ -953,7 +957,6 @@ class _DisponierenWidgetState extends State<DisponierenWidget> {
                                   ),
                                   FFButtonWidget(
                                     onPressed: () async {
-                                      context.pushReplacementNamed('DisponierenNext');
                                     },
                                     text: 'Hinzufügen',
                                     options: FFButtonOptions(
@@ -980,7 +983,6 @@ class _DisponierenWidgetState extends State<DisponierenWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
-                                
                                 ],
                               ),
                             ),

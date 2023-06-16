@@ -1,3 +1,4 @@
+import '../../utils/temp_data.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -224,9 +225,6 @@ class _PUPatientSuchenWidgetState extends State<PUPatientSuchenWidget> {
             ),
             child: Builder(
               builder: (context) {
-                final fahrdienste = List.generate(
-                    random_data.randomInteger(1, 5),
-                    (index) => random_data.randomName(true, true)).toList();
                 return DataTable2(
                   columns: [
                     DataColumn2(
@@ -248,19 +246,31 @@ class _PUPatientSuchenWidgetState extends State<PUPatientSuchenWidget> {
                       ),
                     ),
                   ],
-                  rows: fahrdienste
-                      .mapIndexed((fahrdiensteIndex, fahrdiensteItem) => [
-                            Text(
-                              'Edit Column 1',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Text(
-                              'Edit Column 2',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ].map((c) => DataCell(c)).toList())
-                      .map((e) => DataRow(cells: e))
-                      .toList(),
+                  rows: List.generate(
+                    TempData.getPatients().length ~/ 2,
+                    (index) => [
+                      Text(
+                        TempData.getPatients()[index * 2],
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                      Text(
+                        TempData.getPatients()[index * 2 + 1],
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                    ]
+                        .map((c) => DataCell(
+                              GestureDetector(
+                                onTap: () async {
+                                  await TempData.fetchData(
+                                      TempData.getPatients()[index * 2 + 1],
+                                      TempData.getPatients()[index * 2]);
+                                  context.pop();
+                                },
+                                child: c,
+                              ),
+                            ))
+                        .toList(),
+                  ).map((e) => DataRow(cells: e)).toList(),
                   headingRowColor: MaterialStateProperty.all(
                     FlutterFlowTheme.of(context).primaryBackground,
                   ),
