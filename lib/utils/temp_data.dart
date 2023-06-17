@@ -191,4 +191,40 @@ class TempData {
       return 1;
     }
   }
+
+  //
+  static Future<void> setDrivingServiceData(
+      //String fahrername,
+      String fahrdienstname,
+      String stadt,
+      String anschrift,
+      int plz,
+      String ort,
+      String telefonnummer,
+      String mobilrufnummer,
+      String email,
+      // int sitzplaetze
+      ) async {
+    try {
+      var response = await http.post(
+        Uri.parse('$_ip/set_driving_service_data.php'),
+        body: {
+          //'fahrername': fahrername,
+          'fahrdienstname': fahrdienstname,
+          'stadt': stadt,
+          'anschrift': anschrift,
+          'plz': plz.toString(),
+          'ort': ort,
+          'telefonnummer': telefonnummer,
+          'mobilrufnummer': mobilrufnummer,
+          'email': email,
+          //'sitzplätze': sitzplaetze.toString(),
+        },
+      );
+      setResponseStatus(response.statusCode);
+      setResponseBody(response.body);
+    } catch (e) {
+      print(e);
+    }
+  }
 }

@@ -421,6 +421,7 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 20.0, 0.0),
                                           child: TextFormField(
+                                            readOnly: true,
                                             controller:
                                                 _model.eingabefeldController1,
                                             textCapitalization:
@@ -513,6 +514,7 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 20.0, 0.0),
                                           child: TextFormField(
+                                            readOnly: true,
                                             controller:
                                                 _model.eingabefeldController2,
                                             textCapitalization:
@@ -1393,6 +1395,69 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   FFButtonWidget(
+                                    onPressed: () async {
+                                      await TempData.setDrivingServiceData(
+                                          _model.eingabefeldController1.text,
+                                          _model.eingabefeldController2.text,
+                                          _model.eingabefeldController3.text,
+                                          int.parse(_model
+                                              .eingabefeldController4.text),
+                                          _model.eingabefeldController5.text,
+                                          _model.eingabefeldController7.text,
+                                          _model.eingabefeldController8.text,
+                                          _model.eingabefeldController6.text);
+                                      if (TempData.getResponseStatus() == 200 &&
+                                          context.mounted) {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text(
+                                                  TempData.getResponseBody()),
+                                              content: Text("Daten von " +
+                                                  _model.eingabefeldController1
+                                                      .text +
+                                                  " wurden aktualisiert."),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: const Text("OK"),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      }
+                                    },
+                                    text: 'Änderung speichern',
+                                    options: FFButtonOptions(
+                                      width: 200.0,
+                                      height: 60.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  FFButtonWidget(
                                     onPressed: () {
                                       _model.eingabefeldController1.text = "";
                                       _model.eingabefeldController2.text = "";
@@ -1466,6 +1531,69 @@ class _FahrdienstWidgetState extends State<FahrdienstWidget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      await TempData.setDrivingServiceData(
+                                          _model.eingabefeldController1.text,
+                                          _model.eingabefeldController2.text,
+                                          _model.eingabefeldController3.text,
+                                          int.parse(_model
+                                              .eingabefeldController4.text),
+                                          _model.eingabefeldController5.text,
+                                          _model.eingabefeldController7.text,
+                                          _model.eingabefeldController8.text,
+                                          _model.eingabefeldController6.text);
+                                      if (TempData.getResponseStatus() == 200 &&
+                                          context.mounted) {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text(
+                                                  TempData.getResponseBody()),
+                                              content: Text("Daten von " +
+                                                  _model.eingabefeldController1
+                                                      .text +
+                                                  " wurden aktualisiert."),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: const Text("OK"),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      }
+                                    },
+                                    text: 'Änderung speichern',
+                                    options: FFButtonOptions(
+                                      width: 200.0,
+                                      height: 60.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                  Spacer(),
                                 FFButtonWidget(
                                   onPressed: () {
                                     _model.eingabefeldController1.text = "";

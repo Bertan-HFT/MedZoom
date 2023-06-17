@@ -420,22 +420,22 @@ class _DisponierenWidgetState extends State<DisponierenNextWidget> {
                                           tabellefrdispoItem) =>
                                       [
                                         Text(
-                                          'Patient A',
+                                          'Matthias Flad',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium,
                                         ),
                                         Text(
-                                          'Arzt A',
+                                          'Dr Best',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium,
                                         ),
                                         Text(
-                                          'Fahrdienst A',
+                                          'ByteRider',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium,
                                         ),
                                         Text(
-                                          'Termin A',
+                                          '30.06.2023',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium,
                                         ),

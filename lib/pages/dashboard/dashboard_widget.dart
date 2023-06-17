@@ -104,7 +104,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF1F4F8),
+      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).tertiary,
         automaticallyImplyLeading: false,

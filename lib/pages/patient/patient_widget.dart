@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import '../../utils/temp_data.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -475,10 +473,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
+                                                        color: Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -528,9 +523,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
+                                                  color:  Color(0xFF57636C),
                                                   fontSize: 18.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
