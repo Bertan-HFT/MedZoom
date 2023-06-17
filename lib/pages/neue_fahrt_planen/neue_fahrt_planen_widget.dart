@@ -383,7 +383,7 @@ class _NeueFahrtPlanenWidgetState extends State<NeueFahrtPlanenWidget> {
                         ),
                       ],
                       rows: List.generate(
-                        _patients.length ~/ 2,
+                        _patients.length,
                         (index) => [
                           Text(
                             _patients[index],
