@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:med_zoom/pages/disponieren_next/disponieren_next_widget.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
 
@@ -97,11 +96,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/dashboard',
           builder: (context, params) => DashboardWidget(),
         ),
-        FFRoute(
-          name: 'DisponierenNext',
-          path: '/disponierennext',
-          builder: (context, params) => DisponierenNextWidget(),
-        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 
