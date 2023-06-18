@@ -660,6 +660,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    //Bertan
                                                     await TempData.fetchData("Bertan", "Dincer");
                                                     context
                                                         .pushNamed('Patient');
@@ -852,6 +853,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    //Matthias
                                                     await TempData.fetchData("Matthias", "Flad");
                                                     context
                                                         .pushNamed('Patient');
@@ -1044,6 +1046,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    //Min
                                                     await TempData.fetchData("Min", "Gerlach");
                                                     context
                                                         .pushNamed('Patient');
@@ -1236,6 +1239,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    //Kay
                                                     await TempData.fetchData("Kay", "Kröhner");
                                                     context
                                                         .pushNamed('Patient');
@@ -1428,6 +1432,7 @@ class _PatientenlisteWidgetState extends State<PatientenlisteWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    //Giuliano
                                                     await TempData.fetchData("Giuliano", "Weeh");
                                                     context
                                                         .pushNamed('Patient');

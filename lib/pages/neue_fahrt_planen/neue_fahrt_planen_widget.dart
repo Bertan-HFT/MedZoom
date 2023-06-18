@@ -84,6 +84,7 @@ class _NeueFahrtPlanenWidgetState extends State<NeueFahrtPlanenWidget> {
                 ),
                 onPressed: () {
                   setState(() {
+                    //Felder zurücksetzen
                     _patients = [];
                     _model.textController1.text = "";
                     _model.textController2.text = "";
@@ -382,6 +383,7 @@ class _NeueFahrtPlanenWidgetState extends State<NeueFahrtPlanenWidget> {
                           ),
                         ),
                       ],
+                      // Zeige Patienten in der DataTable an
                       rows: List.generate(
                         _patients.length,
                         (index) => [
