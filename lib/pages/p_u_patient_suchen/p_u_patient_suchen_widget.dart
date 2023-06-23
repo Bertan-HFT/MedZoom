@@ -246,6 +246,7 @@ class _PUPatientSuchenWidgetState extends State<PUPatientSuchenWidget> {
                       ),
                     ),
                   ],
+                  //Daten in der DataTable anzeigen und clickable machen
                   rows: List.generate(
                     TempData.getPatients().length ~/ 2,
                     (index) => [

@@ -71,7 +71,7 @@ class TempData {
     return _ip;
   }
 
-  // liest Daten aus der Datenbank
+  // liest Patientendaten aus der Datenbank
   static Future<void> fetchData(String vorname, String nachname) async {
     try {
       final response = await http.post(
@@ -91,7 +91,7 @@ class TempData {
     return _data;
   }
 
-  // liest Patienten aus der Datenbank
+  // liest Patientenliste aus der Datenbank
   static Future<void> fetchPatients() async {
     try {
       final response = await http.get(Uri.parse('$_ip/get_patient_list.php'));
@@ -105,7 +105,7 @@ class TempData {
     return _patients;
   }
 
-  //
+  // speichert Patientendaten in der Datenbank
   static Future<void> setData(
       String name,
       String vorname,
@@ -144,7 +144,7 @@ class TempData {
     }
   }
 
-  // liest Patienten aus der Datenbank
+  // liest Fahrdienste aus der Datenbank
   static Future<void> fetchDrivingServices() async {
     try {
       final response =
@@ -159,7 +159,7 @@ class TempData {
     return _drivingServices;
   }
 
-  // liest Daten aus der Datenbank
+  // liest Fahrdienstliste aus der Datenbank
   static Future<void> fetchDrivingServiceData(
       String fahrdienstname, String stadt) async {
     try {
@@ -180,6 +180,7 @@ class TempData {
     return _drivingServicesData;
   }
 
+  //Konvertiert Abholort zu Sammelstellen ID
   static int sammelstelleToID(String value) {
     if (value == "Supermarkt") {
       return 1;
@@ -192,7 +193,7 @@ class TempData {
     }
   }
 
-  //
+  // Speichert Fahrdienstdaten in der Datenbank
   static Future<void> setDrivingServiceData(
       //String fahrername,
       String fahrdienstname,

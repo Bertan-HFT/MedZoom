@@ -250,6 +250,7 @@ class _PUFahrdienstSuchenWidgetState extends State<PUFahrdienstSuchenWidget> {
                       ),
                     ),
                   ],
+                  //Daten in der DataTable anzeigen und Zeilen clickable machen
                   rows: List.generate(
                     TempData.getDrivingServices().length ~/ 2,
                     (index) => [

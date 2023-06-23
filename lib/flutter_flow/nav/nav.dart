@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:med_zoom/pages/disponieren_next/disponieren_next_widget.dart';
 import 'package:page_transition/page_transition.dart';
+import '../../pages/neue_fahrt_planen/neue_fahrt_planen_widget.dart';
 import '../flutter_flow_theme.dart';
 
 import '../../index.dart';
@@ -53,7 +53,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, _) => appStateNotifier.showSplashImage
               ? Builder(
                   builder: (context) => Container(
-                    color: Color(0xFF333333),
+                    color: Color.fromARGB(255, 255, 255, 255),
                     child: Image.asset(
                       'assets/images/MedZoom_00.png',
                       fit: BoxFit.contain,
@@ -98,9 +98,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DashboardWidget(),
         ),
         FFRoute(
-          name: 'DisponierenNext',
-          path: '/disponierennext',
-          builder: (context, params) => DisponierenNextWidget(),
+          name: 'NeueFahrt',
+          path: '/neuefahrt',
+          builder: (context, params) => NeueFahrtPlanenWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

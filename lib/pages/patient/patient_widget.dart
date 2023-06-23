@@ -54,6 +54,7 @@ class _PatientWidgetState extends State<PatientWidget> {
     _model.eingabefeldController11 ??= TextEditingController();
     List<String> output = TempData.getData();
     _currentData = output;
+    //Daten anzeigen
     _model.eingabefeldController1.text = output[10];
     _model.eingabefeldController2.text = output[3];
     _model.eingabefeldController3.text = output[2];
@@ -795,6 +796,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                     size: 30.0,
                                   ),
                                   onPressed: () async {
+                                    //Overlay anzeigen
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,
@@ -808,6 +810,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                         );
                                       },
                                     ).then((value) => setState(() {
+                                      //Wenn geschlossen, Daten aus ausgewählter Person anzeigen
                                           List<String> output =
                                               TempData.getData();
                                           _model.eingabefeldController1.text =
@@ -1679,6 +1682,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                 children: [
                                   FFButtonWidget(
                                     onPressed: () async {
+                                      //Daten speichern
                                       await TempData.setData(
                                           _model.eingabefeldController3.text,
                                           _model.eingabefeldController2.text,
@@ -1698,6 +1702,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                               .auswahlfeldValueController1!
                                               .value
                                               .toString()));
+                                              //Wenn erfolgereich, zeige Dialog
                                       if (TempData.getResponseStatus() == 200 &&
                                           context.mounted) {
                                         showDialog(
@@ -1754,6 +1759,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                   Spacer(),
                                   FFButtonWidget(
                                     onPressed: () {
+                                      //Felder zurücksetzen
                                       _model.eingabefeldController1.text = "";
                                       _model.eingabefeldController2.text = "";
                                       _model.eingabefeldController3.text = "";
@@ -1831,6 +1837,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                               children: [
                                 FFButtonWidget(
                                   onPressed: () async {
+                                    //Daten speichern
                                     await TempData.setData(
                                         _model.eingabefeldController3.text,
                                         _model.eingabefeldController2.text,
@@ -1846,6 +1853,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                         _model.eingabefeldController8.text,
                                         TempData.sammelstelleToID(_model
                                             .eingabefeldController11.text));
+                                            //Dialog dass es erfolgreich war
                                     if (TempData.getResponseStatus() == 200 &&
                                         context.mounted) {
                                       showDialog(
@@ -1900,6 +1908,7 @@ class _PatientWidgetState extends State<PatientWidget> {
                                 Spacer(),
                                 FFButtonWidget(
                                   onPressed: () {
+                                    //Felder zurücksetzen
                                     _model.eingabefeldController1.text = "";
                                     _model.eingabefeldController2.text = "";
                                     _model.eingabefeldController3.text = "";
